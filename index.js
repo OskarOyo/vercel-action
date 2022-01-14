@@ -123,7 +123,7 @@ async function vercelDeploy(ref, commit) {
     '-m',
     `githubCommitMessage=${commit}`,
     '-m',
-    `githubCommitRef=${ref.replace('refs/heads/', '')}`,
+    `githubCommitRef=stg`,
   ];
 
   if (vercelScope) {
@@ -231,7 +231,7 @@ function buildCommentBody(deploymentCommit, deploymentUrl, deploymentName) {
     stripIndents`
       ✅ Preview
       ${joinDeploymentUrls(deploymentUrl, aliasDomains)}
-      
+
       Built with commit ${deploymentCommit}.
       This pull request is being automatically deployed with [vercel-action](https://github.com/marketplace/actions/vercel-action)
     `
